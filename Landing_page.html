@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyCloud.bg</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Вашият личен облак – сигурен, независим, в България</h1>
+    <p>
+      Хостинг на Nextcloud, OnlyOffice, Jitsi и други open-source приложения под ваш собствен под-домейн. 100% GDPR съвместимо, 100% контрол върху данните ви.
+    </p>
+    <a href="#plans" class="button">Започнете безплатно</a>
+
+    <div class="grid grid-3" id="features">
+      <div class="card">
+        <h2>Данни в България</h2>
+        <p>Сървъри, разположени локално, гарантират бърз достъп и правна защита.</p>
+      </div>
+      <div class="card">
+        <h2>Open Source технологии</h2>
+        <p>Използваме само отворен код – без реклами и трети страни.</p>
+      </div>
+      <div class="card">
+        <h2>Поддръжка на български</h2>
+        <p>Ние сме до вас – с реална, локална техническа поддръжка.</p>
+      </div>
+    </div>
+
+    <div id="plans">
+      <h2>Ценови планове</h2>
+      <div class="grid grid-3" id="plan-container">
+        <!-- Plans will be inserted here by JS -->
+      </div>
+      <p>14-дневен безплатен пробен период за всички планове</p>
+    </div>
+
+    <footer>
+      © 2025 MyCloud.bg – Всички права запазени
+    </footer>
+  </div>
+
+  <script>
+    const plans = [
+      { name: 'Старт', price: '12 лв/месец', storage: '50 GB', users: '5 потребителя' },
+      { name: 'Про', price: '35 лв/месец', storage: '200 GB', users: '15 потребителя' },
+      { name: 'Бизнес', price: '75 лв/месец', storage: '500 GB', users: '50 потребителя' }
+    ];
+
+    const container = document.getElementById('plan-container');
+    plans.forEach(plan => {
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.innerHTML = `
+        <h3>${plan.name}</h3>
+        <p>${plan.storage} / ${plan.users}</p>
+        <p class="plan-price">${plan.price}</p>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
